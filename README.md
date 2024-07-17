@@ -75,5 +75,6 @@ Ex:
   d: {
     a: 3,
     b: 'testtesttest'
+  }
 }
 ```
