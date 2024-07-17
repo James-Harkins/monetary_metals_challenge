@@ -127,25 +127,27 @@ function updateArrayValue(result, object, action) {
     })
 }
 
+function runOperation (actions, results, object, key) {
+    switch (actions[key]) {
+        case "add":
+            results[key] += object[key];
+            break;
+        case "append":
+            results[key] = updateArrayValue(results[key], object[key], actions[key])
+            break;
+        case "prepend":
+            results[key] = updateArrayValue(results[key], object[key], actions[key])
+            break;
+        case "concatenate":
+            results[key] += object[key];
+            break;
+    }
+}
+
 function updateResultsForObject(results, object, actions) {
     for (const key in results) {
         if (typeof actions[key] === 'object') updateResultsForObject(results[key], object[key], actions[key]);
-        else {
-            switch (actions[key]) {
-                case "add":
-                    results[key] += object[key];
-                    break;
-                case "append":
-                    results[key] = updateArrayValue(results[key], object[key], actions[key])
-                    break;
-                case "prepend":
-                    results[key] = updateArrayValue(results[key], object[key], actions[key])
-                    break;
-                case "concatenate":
-                    results[key] += object[key];
-                    break;
-            }
-        }
+        else runOperation(actions, results, object, key);
     }
 }
 
