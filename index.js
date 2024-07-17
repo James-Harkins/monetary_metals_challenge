@@ -1,3 +1,76 @@
+function operateOnObjectsList(objectsList, actions) {
+    let results = generateInitialValues(actions);
+    
+    for (let i = 0; i < objectsList.length; i++) {
+        updateResultsForObject(results, objectsList[i], actions)
+    }
+    
+    return results;
+}
+
+function updateResultsForObject(results, object, actions) {
+    for (const key in results) {
+        if (typeof actions[key] === 'object') updateResultsForObject(results[key], object[key], actions[key]);
+        else runOperation(actions, results, object, key);
+    }
+}
+
+function runOperation (actions, results, object, key) {
+    switch (actions[key]) {
+        case "add":
+            results[key] += object[key];
+            break;
+        case "append":
+            results[key] = updateArrayValue(results[key], object[key], actions[key])
+            break;
+        case "prepend":
+            results[key] = updateArrayValue(results[key], object[key], actions[key])
+            break;
+        case "concatenate":
+            results[key] += object[key];
+            break;
+    }
+}
+    
+function updateArrayValue(result, object, action) {
+    let current = Array.from(result);
+    
+    for (let j = 0; j < object.length; j++) {
+        if (action == 'append') current.push(object[j]);
+        else if (action == 'prepend') current.unshift(object[j])
+    }
+    
+    return current.filter(function (char) {
+        return char !== ',';
+    })
+}
+    
+function generateInitialValues(actions) {
+    let initialValues = {};
+
+    for (const key in actions) {
+        initialValues[key] = determineInitialValue(actions[key]);
+    }
+
+    return initialValues;
+}
+    
+function determineInitialValue(action) {
+    if (typeof action === "object") return generateInitialValues(action);
+    else {
+        switch (action) {
+            case "add":
+                return 0;
+            case "append":
+                return new Array();
+            case "prepend":
+                return new Array();
+            case "concatenate":
+                return "";
+        }
+    }
+}
+
 let objectsList = [
     {
         a: 1,
@@ -86,79 +159,6 @@ let testResult1 = {
             }
         }
     }
-}
-
-function generateInitialValues(actions) {
-    let initialValues = {};
-
-    for (const key in actions) {
-        initialValues[key] = determineInitialValue(actions[key]);
-    }
-
-    return initialValues;
-}
-
-function determineInitialValue(action) {
-    if (typeof action === "object") return generateInitialValues(action);
-    else {
-        switch (action) {
-            case "add":
-                return 0;
-            case "append":
-                return new Array();
-            case "prepend":
-                return new Array();
-            case "concatenate":
-                return "";
-        }
-    }
-}
-
-function updateArrayValue(result, object, action) {
-    let current = Array.from(result);
-    
-    for (let j = 0; j < object.length; j++) {
-        if (action == 'append') current.push(object[j]);
-        else if (action == 'prepend') current.unshift(object[j])
-    }
-    
-    return current.filter(function (char) {
-        return char !== ',';
-    })
-}
-
-function runOperation (actions, results, object, key) {
-    switch (actions[key]) {
-        case "add":
-            results[key] += object[key];
-            break;
-        case "append":
-            results[key] = updateArrayValue(results[key], object[key], actions[key])
-            break;
-        case "prepend":
-            results[key] = updateArrayValue(results[key], object[key], actions[key])
-            break;
-        case "concatenate":
-            results[key] += object[key];
-            break;
-    }
-}
-
-function updateResultsForObject(results, object, actions) {
-    for (const key in results) {
-        if (typeof actions[key] === 'object') updateResultsForObject(results[key], object[key], actions[key]);
-        else runOperation(actions, results, object, key);
-    }
-}
-
-function operateOnObjectsList(objectsList, actions) {
-    let results = generateInitialValues(actions);
-
-    for (let i = 0; i < objectsList.length; i++) {
-        updateResultsForObject(results, objectsList[i], actions)
-    }
- 
-    return results;
 }
 
 const result = (operateOnObjectsList(objectsList, actions))
