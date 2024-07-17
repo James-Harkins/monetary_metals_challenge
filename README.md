@@ -4,6 +4,8 @@ To take a look at the results, please feel free to clone down this repo and run 
 
 This will return the full `results` object. You will see that some of the values appear generic at this level, so I have included some additional log statements at the end of `index.js` (lines 157 and 158) to print these values specifically.
 
+Note: the main function is `operateOnObjectsList` on line 1. 
+
 ### Problem:
 
 Design a function that takes two arguments:
