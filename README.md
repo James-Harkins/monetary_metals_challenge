@@ -1,12 +1,8 @@
 # Hello Bill and KC! 
 
-## Thank you again for the opportunity to interview today for the position at Monetary Metals.
-
 To take a look at the results, please feel free to clone down this repo and run `node index.js` from the command line, assuming that you have Node installed. 
 
 This will return the full `results` object. You will see that some of the values appear generic at this level, so I have included some additional log statements at the end of `index.js` (lines 157 and 158) to print these values specifically.
-
-It was a pleasure meeting with you both and I look forward to hearing from you soon! Please feel free to contact me with any additional questions in the meantime. 
 
 ### Problem:
 
