@@ -62,8 +62,6 @@ Design a function that takes two arguments:
 }
 ```
 
-### Solution: 
-
 Return an object with the same keys, the values for which
 are all of the values for that key operated upon by the
 action listed for that key in the actions object.
