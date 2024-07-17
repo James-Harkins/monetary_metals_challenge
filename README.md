@@ -13,7 +13,8 @@ It was a pleasure meeting with you both and I look forward to hearing from you s
 Problem:
 
 Design a function that takes two arguments:
-    -ObjectsList: list of objects
+    1. ObjectsList: list of objects
+    
     ```
         [
             {
@@ -45,7 +46,9 @@ Design a function that takes two arguments:
             }
         ]
     ```    
-    -Actions: object of actions
+    
+    2. Actions: object of actions
+       
         ```
         {
             a: "add",
