@@ -15,7 +15,6 @@ Problem:
 Design a function that takes two arguments:
     1. ObjectsList: list of objects
     
-    ```
         [
             {
                 a: 1,
@@ -44,12 +43,10 @@ Design a function that takes two arguments:
                     b: "test"
                 }
             }
-        ]
-    ```    
+        ]  
     
     2. Actions: object of actions
        
-        ```
         {
             a: "add",
             b: "prepend",
@@ -59,7 +56,6 @@ Design a function that takes two arguments:
                 b: "concatenate"
             }
         }
-        ```
 
 Return an object with the same keys, the values for which
 are all of the values for that key operated upon by the
