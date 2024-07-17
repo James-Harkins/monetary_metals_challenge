@@ -54,7 +54,7 @@ let objectsList = [
 
 let actions = {
     a: "add",
-    b: "prepend",
+    b: "append",
     c: "concatenate",
     d: {
         a: "add",
@@ -76,7 +76,15 @@ let testResult1 = {
     c: "testtestingtested",
     d: {
         a: 27,
-        b: "testtestertesterer"
+        b: "testtestertesterer",
+        c: {
+            a: [9, 8, 7, 6, 5, 4, 3, 2, 1],
+            b: [3, 2, 1, 6, 5, 4, 9, 8, 7],
+            c: 1100,
+            d: {
+                a: "testtest againtest again again"
+            }
+        }
     }
 }
 
