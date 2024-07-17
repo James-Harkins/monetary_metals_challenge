@@ -50,7 +50,7 @@ Design a function that takes two arguments:
 {
     a: "add",
     b: "prepend",
-    c: "concatenate"
+    c: "concatenate",
     d: {
         a: "add",
         b: "concatenate"
@@ -66,12 +66,14 @@ Ex:
 
 ```
 {
-    a: 16,
-    b: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    c: "testtesttest",
-    d: {
-        a: 3,
-        b: "testtesttest"
-    }
+  a: 16,
+  b: [
+    9, 8, 7, 6, 5,
+    4, 3, 2, 1
+  ],
+  c: 'testtesttest',
+  d: {
+    a: 3,
+    b: 'testtesttest'
 }
 ```
